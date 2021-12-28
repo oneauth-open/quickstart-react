@@ -1,9 +1,8 @@
-import { useState } from "react";
-
 import "./App.css";
 import OneAuth from "oneauth-sdk-core";
-import { Security, LoginCallback } from "oneauth-sdk-react";
+import { Security, LoginCallback, SecurityRoute } from "oneauth-sdk-react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { About } from "./about";
 function App() {
   const oneAuth = new OneAuth({
     issuer: `kang.oneauth.cn/oauth/v1`,
@@ -19,9 +18,18 @@ function App() {
         <br />
         <BrowserRouter>
           <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
           <Routes>
             <Route path="/" element={<h1>Home</h1>} />
             <Route path="/callback" element={<LoginCallback></LoginCallback>} />
+            <Route
+              path="/about"
+              element={
+                <SecurityRoute>
+                  <About />
+                </SecurityRoute>
+              }
+            ></Route>
           </Routes>
         </BrowserRouter>
       </Security>
