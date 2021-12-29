@@ -1,7 +1,7 @@
 import "./App.css";
 import OneAuth from "oneauth-sdk-core";
 import { Security, LoginCallback, SecurityRoute } from "oneauth-sdk-react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import { About } from "./about";
 function App() {
   const oneAuth = new OneAuth({
@@ -12,28 +12,29 @@ function App() {
   });
   const login = () => oneAuth.login();
   return (
-    <div className="App">
-      <Security oneAuth={oneAuth}>
-        <button onClick={login}>Login</button>
-        <br />
-        <BrowserRouter>
-          <Link to="/">Home</Link>
+    <BrowserRouter>
+      <div className="App">
+        <Security oneAuth={oneAuth}>
+          <button onClick={login}>Login</button>
+          <br />
+          <Link to="/home">Home</Link>
           <Link to="/about">About</Link>
-          <Routes>
-            <Route path="/" element={<h1>Home</h1>} />
-            <Route path="/callback" element={<LoginCallback></LoginCallback>} />
-            <Route
-              path="/about"
-              element={
-                <SecurityRoute>
-                  <About />
-                </SecurityRoute>
-              }
-            ></Route>
-          </Routes>
-        </BrowserRouter>
-      </Security>
-    </div>
+          <Route path="/callback">
+            <LoginCallback />
+          </Route>
+          <Route path="/home">
+            <h1>Home</h1>
+          </Route>
+          {/* <Route
+            path="/about"
+            component={(...props: unknown[]) => <h1>About</h1>}
+          ></Route> */}
+          <SecurityRoute path="/about">
+            <About />
+          </SecurityRoute>
+        </Security>
+      </div>
+    </BrowserRouter>
   );
 }
 
