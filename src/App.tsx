@@ -1,6 +1,6 @@
 import "./App.css";
-import OneAuth from "oneauth-sdk-core";
-import { Security, LoginCallback, SecurityRoute } from "oneauth-sdk-react";
+import OneAuth from "@oneauth/sdk-core";
+import { Security, LoginCallback, SecurityRoute } from "@oneauth/sdk-react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { About } from "./about";
 function App() {
