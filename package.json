@@ -1,0 +1,29 @@
+{
+  "name": "sdk-react-tester",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@oneauth/sdk-core": "^0.0.1",
+    "@oneauth/sdk-react": "^0.0.1",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.3.0",
+    "safe": "^0.4.7",
+    "stream": "^0.0.2",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/react-router-dom": "^5.3.2",
+    "@vitejs/plugin-react": "^1.0.7",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  }
+}
